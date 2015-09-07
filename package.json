@@ -1,0 +1,32 @@
+{
+  "name": "DHCCodeGenerator",
+  "version": "1.0.0",
+  "description": "A Paw plugin that exports a request to DHC format",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:harrol/Paw-DHCCodeGenerator.git"
+  },
+  "keywords": [
+    "paw",
+    "dhc",
+    "rest"
+  ],
+  "author": "Harro Lissenberg",
+  "bugs": {
+    "url": "https://github.com/harrol/Paw-DHCCodeGenerator/issues"
+  },
+  "homepage": "https://github.com/harrol/Paw-DHCCodeGenerator",
+  "devDependencies": {
+    "del": "^2.0.1",
+    "gulp": "^3.9.0",
+    "gulp-jshint": "^1.11.2"
+  },
+  "dependencies": {
+    "URIjs": "^1.16.0",
+    "mustache": "^2.1.3"
+  }
+}

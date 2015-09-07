@@ -1,0 +1,46 @@
+{
+    "version": 3,
+    "nodes": [
+        {
+            "id": "{{id}}",
+            "type": "Request",
+            "name": "{{name}}",
+            {{#has_headers}}
+            "headers": [
+                {{#headers}}
+                {
+                     "enabled": true,
+                     "name": "{{{name}}}",
+                     "value": "{{{value}}}"
+                }{{^last}},{{/last}}
+                {{/headers}}
+            ],
+            "headersType": "Form",
+            {{/has_headers}}
+                "method": {
+                    "name": "{{method}}"
+            },
+            "uri": {
+                "path": "{{{path}}}",
+                {{#has_queryparams}}
+                "query": {
+                    "delimiter": "&",
+                    "items": [
+                    {{#queryparams}}
+                    {
+                      "enabled": true,
+                      "name": "{{{name}}}",
+                      "value": "{{{value}}}"
+                    }{{^last}},{{/last}}
+                    {{/queryparams}}
+                    ]
+                },
+                {{/has_queryparams}}
+                "scheme": {
+                    "name": "{{scheme}}",
+                    "version": "V11"
+                }
+            }
+        }
+    ]
+}

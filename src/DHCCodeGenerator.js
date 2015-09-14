@@ -28,6 +28,7 @@ var DHCCodeGenerator = function () {
         var uri = new URI(request.url);
         var headers = mapParams(request.headers);
         var queryparams = mapParams(uri.search(true));
+        var formParams = mapParams(request.urlEncodedBody);
         var view = {
             id: request.id,
             name: request.name,
@@ -36,8 +37,10 @@ var DHCCodeGenerator = function () {
             scheme: uri.protocol(),
             headers: headers,
             has_headers: headers.length > 0,
-            queryparams: queryparams,
-            has_queryparams: queryparams.length > 0
+            queryParams: queryparams,
+            has_queryParams: queryparams.length > 0,
+            formParams: formParams,
+            has_formParams: formParams.length > 0
         };
         var template = readFile('dhc.mustache');
         return Mustache.render(template, view);

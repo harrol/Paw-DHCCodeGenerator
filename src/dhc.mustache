@@ -20,22 +20,41 @@
                 "method": {
                     "name": "{{method}}"
             },
+            "body": {
+                {{#has_formParams}}
+                "formBody": {
+                    "overrideContentType": true,
+                    "encoding": "application/x-www-form-urlencoded",
+                    "items": [
+                    {{#formParams}}
+                    {
+                        "enabled": true,
+                        "name": "{{{name}}}",
+                        "value": "{{{value}}}",
+                        "type": "Text"
+                    }{{^last}},{{/last}}
+                    {{/formParams}}
+                    ]
+                },
+                "bodyType": "Form"
+                {{/has_formParams}}
+            },
             "uri": {
                 "path": "{{{path}}}",
-                {{#has_queryparams}}
+                {{#has_queryParams}}
                 "query": {
                     "delimiter": "&",
                     "items": [
-                    {{#queryparams}}
+                    {{#queryParams}}
                     {
                       "enabled": true,
                       "name": "{{{name}}}",
                       "value": "{{{value}}}"
                     }{{^last}},{{/last}}
-                    {{/queryparams}}
+                    {{/queryParams}}
                     ]
                 },
-                {{/has_queryparams}}
+                {{/has_queryParams}}
                 "scheme": {
                     "name": "{{scheme}}",
                     "version": "V11"
